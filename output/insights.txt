@@ -1,0 +1,17 @@
+AMAZON BEST-SELLING BOOKS - KEY INSIGHTS
+================================================================================
+
+1. Genre Balance: The dataset shows 98 Fiction books vs 79 Non Fiction books, indicating reading preferences on Amazon's platform.
+
+2. High Quality Standard: The average rating is 4.57/5.0, demonstrating that best-selling books maintain high quality standards.
+
+3. Author Dominance: J. K. Rowling leads with 8 best-sellers, showing strong brand recognition and reader loyalty.
+
+4. Affordable Pricing: The median price is $10.00, suggesting best-sellers are priced accessibly to reach wider audiences.
+
+5. Reviews vs Ratings: The correlation between review count and rating is 0.245, indicating that popular books (more reviews) tend to have higher ratings.
+
+6. Temporal Patterns: Year 2016 had the most best-sellers, which may reflect market trends or data collection methods.
+
+7. Price vs Quality: With a correlation of -0.208, price is not a strong indicator of book quality. Readers value content over cost.
+
