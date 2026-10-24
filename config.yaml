@@ -1,0 +1,66 @@
+# Amazon Books Analysis Configuration
+# All configurable parameters for the analysis pipeline
+
+data:
+  path: "data/amazon_books.csv"
+  encoding: "utf-8"
+  column_mapping:
+    "Name": "name"
+    "Author": "author"
+    "User Rating": "user_rating"
+    "Reviews": "reviews"
+    "Price": "price"
+    "Year": "year"
+    "Genre": "genre"
+
+output:
+  output_dir: "output"
+  figures_dir: "output/figures"
+  reports_dir: "output/reports"
+  dpi: 300
+  formats: ["png"]
+  font_size: 10
+  figsize: [12, 6]
+  style: "whitegrid"
+  color_palette: "viridis"
+
+analysis:
+  top_authors_count: 10
+  price_bins: 20
+  correlation_method: "pearson"
+  significance_level: 0.05
+  genre_order: ["Fiction", "Non Fiction"]
+  year_range: [2009, 2022]
+
+visualization:
+  bar_chart:
+    colors: ["#3498db", "#e74c3c"]
+    edgecolor: "black"
+    linewidth: 0.5
+    alpha: 0.8
+  box_plot:
+    patch_artist: true
+    notch: false
+    showfliers: true
+  scatter_plot:
+    alpha: 0.6
+    edgecolors: "black"
+    linewidth: 0.5
+    s: 50
+  line_chart:
+    marker: "o"
+    linewidth: 2
+    markersize: 8
+    grid_alpha: 0.3
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "output/analysis.log"
+  console: true
+
+pipeline:
+  questions: [1, 2, 3, 4, 5, 6, 7]
+  generate_visualizations: true
+  generate_insights: true
+  save_cleaned_data: false
