@@ -30,32 +30,35 @@ The analysis follows industry-standard data science practices including data cle
 amazon-books-analysis/
 │
 ├── data/
-│   └── amazon_books.csv          # Dataset with 550 Amazon best-selling books
+│   └── amazon_books.csv          # Amazon best-selling books dataset
 │
 ├── src/
-│   └── analysis.py                # Complete analysis script with OOP design
+│   ├── analysis.py                # Legacy single-file analysis script (kept for reference)
+│   └── amazon_books_analysis/     # Actively maintained package: config-driven pipeline,
+│                                   # statistical significance testing, CLI, and tests
 │
-├── output/                        # Generated visualizations and insights
-│   ├── genre_distribution.png
-│   ├── rating_by_genre.png
-│   ├── top_authors.png
-│   ├── reviews_vs_ratings.png
-│   ├── price_distribution.png
-│   ├── yearly_trends.png
-│   ├── price_vs_rating.png
-│   └── insights.txt
+├── tests/                         # Test suite for the amazon_books_analysis package
+├── config.yaml                    # Pipeline configuration for the package
+│
+├── output/                        # Generated visualizations, reports, and insights
 │
 ├── requirements.txt               # Python dependencies
 ├── README.md                      # Project documentation (this file)
 └── venv/                          # Virtual environment (excluded from git)
 ```
 
+**Note on `src/analysis.py` vs. `src/amazon_books_analysis/`:** this repository grew from a
+single-file script into a proper package. `src/analysis.py` is the original, self-contained
+version and still runs standalone (see "How to Run" below); `src/amazon_books_analysis/` is
+the actively maintained, config-driven package with statistical significance testing, a CLI,
+and a test suite, and is where new work should go.
+
 ---
 
 ## Dataset Description
 
-**Source**: Amazon Top 50 Bestselling Books (2009-2019)  
-**Records**: 550 books  
+**Source**: Amazon best-selling books
+**Records**: 177 books, spanning years 2009-2020 and 2022 (no 2021 entries)
 **File**: `data/amazon_books.csv`
 
 ### Columns
@@ -116,15 +119,29 @@ pip install -r requirements.txt
 
 ### Step 5: Run the Analysis
 
+Using the legacy single-file script:
+
 ```bash
 python src/analysis.py
 ```
 
+Or using the actively maintained package (installable, config-driven, with a CLI):
+
+```bash
+pip install -e .
+python -m amazon_books_analysis.cli --config config.yaml
+```
+
+Run `python -m amazon_books_analysis.cli --help` to see all available flags
+(`--plots-only`, `--reports-only`, `--stats-only`, `--correlations-only`,
+`--trends-only`, `-v`/`-q` for verbosity, etc.).
+
 ### Step 6: View Results
 
 After execution, check the `output/` directory for:
-- **7 visualization images** (PNG format, 300 DPI)
-- **insights.txt** - Text file with key findings
+- Visualization images (PNG format)
+- Generated reports (JSON, text, Markdown, and HTML) with statistical significance tests
+- `insights.txt` (legacy script) with key findings
 
 ---
 
