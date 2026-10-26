@@ -57,14 +57,14 @@ class AmazonBooksAnalyzer:
         
         try:
             self.df = pd.read_csv(self.data_path)
-            print(f"✓ Data loaded successfully from {self.data_path}")
-            print(f"✓ Dataset contains {len(self.df)} records")
+            print(f"Data loaded successfully from {self.data_path}")
+            print(f"Dataset contains {len(self.df)} records")
             return self.df
         except FileNotFoundError:
-            print(f"✗ Error: File not found at {self.data_path}")
+            print(f"Error: File not found at {self.data_path}")
             raise
         except Exception as e:
-            print(f"✗ Error loading data: {str(e)}")
+            print(f"Error loading data: {str(e)}")
             raise
     
     def understand_data(self):
@@ -121,7 +121,7 @@ class AmazonBooksAnalyzer:
             'Genre': 'genre'
         }
         self.df_clean.rename(columns=column_mapping, inplace=True)
-        print(f"✓ Columns renamed: {list(self.df_clean.columns)}")
+        print(f"Columns renamed: {list(self.df_clean.columns)}")
         
         # Step 2: Check and convert data types
         print("\n--- Step 2: Data Type Conversions ---")
@@ -134,16 +134,16 @@ class AmazonBooksAnalyzer:
         self.df_clean['year'] = pd.to_numeric(self.df_clean['year'], errors='coerce').astype('Int64')
         
         print(f"\nAfter conversion:\n{self.df_clean.dtypes}")
-        print("✓ Data types verified and converted")
+        print("Data types verified and converted")
         
         # Step 3: Check for missing values
         print("\n--- Step 3: Missing Values Check ---")
         missing = self.df_clean.isnull().sum()
-        print(missing[missing > 0] if missing.sum() > 0 else "✓ No missing values found")
+        print(missing[missing > 0] if missing.sum() > 0 else "No missing values found")
         
         # Handle missing values if any
         if missing.sum() > 0:
-            print("⚠ Handling missing values...")
+            print("Handling missing values...")
             # For numeric columns, fill with median
             numeric_cols = ['user_rating', 'reviews', 'price', 'year']
             for col in numeric_cols:
@@ -158,11 +158,11 @@ class AmazonBooksAnalyzer:
         print(f"Duplicates found: {duplicates}")
         
         if duplicates > 0:
-            print("⚠ Removing duplicate rows...")
+            print("Removing duplicate rows...")
             self.df_clean.drop_duplicates(inplace=True)
-            print(f"✓ Removed {duplicates} duplicate rows")
+            print(f"Removed {duplicates} duplicate rows")
         else:
-            print("✓ No duplicates found")
+            print("No duplicates found")
         
         # Step 5: Sanity checks
         print("\n--- Step 5: Sanity Checks ---")
@@ -180,7 +180,7 @@ class AmazonBooksAnalyzer:
         print(f"Negative prices: {len(negative_prices)}")
         
         if len(invalid_ratings) == 0 and len(negative_reviews) == 0 and len(negative_prices) == 0:
-            print("✓ All sanity checks passed")
+            print("All sanity checks passed")
         
         print(f"\n--- Cleaning Summary ---")
         print(f"Original records: {len(self.df)}")
@@ -235,10 +235,10 @@ class AmazonBooksAnalyzer:
         plt.tight_layout()
         plt.savefig(self.output_dir / 'genre_distribution.png', dpi=300, bbox_inches='tight')
         plt.close()
-        print("✓ Visualization saved: genre_distribution.png")
+        print("Visualization saved: genre_distribution.png")
         
         # Interpretation
-        print("\n📊 Interpretation:")
+        print("\nInterpretation:")
         print(f"   The dataset contains {genre_counts.iloc[0]} {genre_counts.index[0]} books "
               f"and {genre_counts.iloc[1]} {genre_counts.index[1]} books.")
         
@@ -259,10 +259,10 @@ class AmazonBooksAnalyzer:
         plt.tight_layout()
         plt.savefig(self.output_dir / 'rating_by_genre.png', dpi=300, bbox_inches='tight')
         plt.close()
-        print("✓ Visualization saved: rating_by_genre.png")
+        print("Visualization saved: rating_by_genre.png")
         
         # Interpretation
-        print("\n📊 Interpretation:")
+        print("\nInterpretation:")
         best_genre = avg_rating['mean'].idxmax()
         best_rating = avg_rating['mean'].max()
         print(f"   {best_genre} books have the highest average rating ({best_rating:.2f}/5.0).")
@@ -284,10 +284,10 @@ class AmazonBooksAnalyzer:
         plt.tight_layout()
         plt.savefig(self.output_dir / 'top_authors.png', dpi=300, bbox_inches='tight')
         plt.close()
-        print("✓ Visualization saved: top_authors.png")
+        print("Visualization saved: top_authors.png")
         
         # Interpretation
-        print("\n📊 Interpretation:")
+        print("\nInterpretation:")
         print(f"   {top_authors.index[0]} leads with {top_authors.iloc[0]} best-selling books.")
         
     def _analyze_reviews_ratings_relationship(self):
@@ -309,10 +309,10 @@ class AmazonBooksAnalyzer:
         plt.tight_layout()
         plt.savefig(self.output_dir / 'reviews_vs_ratings.png', dpi=300, bbox_inches='tight')
         plt.close()
-        print("✓ Visualization saved: reviews_vs_ratings.png")
+        print("Visualization saved: reviews_vs_ratings.png")
         
         # Interpretation
-        print("\n📊 Interpretation:")
+        print("\nInterpretation:")
         if abs(correlation) < 0.3:
             strength = "weak"
         elif abs(correlation) < 0.7:
@@ -353,10 +353,10 @@ class AmazonBooksAnalyzer:
         plt.tight_layout()
         plt.savefig(self.output_dir / 'price_distribution.png', dpi=300, bbox_inches='tight')
         plt.close()
-        print("✓ Visualization saved: price_distribution.png")
+        print("Visualization saved: price_distribution.png")
         
         # Interpretation
-        print("\n📊 Interpretation:")
+        print("\nInterpretation:")
         print(f"   Average book price: ${price_stats['mean']:.2f}")
         print(f"   Price range: ${price_stats['min']:.0f} - ${price_stats['max']:.0f}")
         print(f"   Most books are priced around ${price_stats['50%']:.2f} (median)")
@@ -380,10 +380,10 @@ class AmazonBooksAnalyzer:
         plt.tight_layout()
         plt.savefig(self.output_dir / 'yearly_trends.png', dpi=300, bbox_inches='tight')
         plt.close()
-        print("✓ Visualization saved: yearly_trends.png")
+        print("Visualization saved: yearly_trends.png")
         
         # Interpretation
-        print("\n📊 Interpretation:")
+        print("\nInterpretation:")
         peak_year = yearly_counts.idxmax()
         peak_count = yearly_counts.max()
         print(f"   Peak year: {peak_year} with {peak_count} best-selling books")
@@ -415,10 +415,10 @@ class AmazonBooksAnalyzer:
         plt.tight_layout()
         plt.savefig(self.output_dir / 'price_vs_rating.png', dpi=300, bbox_inches='tight')
         plt.close()
-        print("✓ Visualization saved: price_vs_rating.png")
+        print("Visualization saved: price_vs_rating.png")
         
         # Interpretation
-        print("\n📊 Interpretation:")
+        print("\nInterpretation:")
         if correlation > 0:
             print(f"   Higher prices show a slight positive correlation with ratings ({correlation:.4f}).")
             print("   However, the correlation is weak, suggesting price is not a strong predictor of quality.")
@@ -487,7 +487,7 @@ class AmazonBooksAnalyzer:
             for insight in insights:
                 f.write(f"{insight}\n\n")
         
-        print("✓ Insights saved to: insights.txt")
+        print("Insights saved to: insights.txt")
         
     def run_full_analysis(self):
         """
@@ -507,11 +507,11 @@ class AmazonBooksAnalyzer:
         self.generate_insights()
         
         print("\n" + "="*80)
-        print("✓ ANALYSIS COMPLETE!")
+        print("ANALYSIS COMPLETE!")
         print("="*80)
-        print(f"\n📁 All visualizations saved in: {self.output_dir.absolute()}")
-        print(f"📊 Total visualizations created: 7")
-        print(f"📝 Insights report: {self.output_dir.absolute() / 'insights.txt'}")
+        print(f"\nAll visualizations saved in: {self.output_dir.absolute()}")
+        print(f"Total visualizations created: 7")
+        print(f"Insights report: {self.output_dir.absolute() / 'insights.txt'}")
         print("\n")
 
 
