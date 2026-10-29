@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Books Analysis Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; border-bottom: 1px solid #bdc3c7; padding-bottom: 5px; }
+        h3 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .key-finding { background-color: #e8f6f3; padding: 10px; margin: 10px 0; border-left: 4px solid #1abc9c; }
+        .summary-box { background-color: #ebf5fb; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .metric { display: inline-block; margin: 10px 20px 10px 0; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #2c3e50; }
+        .metric-label { font-size: 14px; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <h1>Amazon Books Analysis Report</h1>
+    <p><em>Generated: {{ generated_at }}</em></p>
+
+    <div class="summary-box">
+        <h2>Data Summary</h2>
+        <div class="metric">
+            <div class="metric-value">{{ data_summary.total_books | default('N/A') }}</div>
+            <div class="metric-label">Total Books</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">{{ data_summary.year_range[0] | default('N/A') }} - {{ data_summary.year_range[1] | default('N/A') }}</div>
+            <div class="metric-label">Year Range</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">{{ data_summary.unique_authors | default('N/A') }}</div>
+            <div class="metric-label">Unique Authors</div>
+        </div>
+    </div>
+
+    <h2>Key Findings</h2>
+    {% for finding in key_findings %}
+    <div class="key-finding">{{ loop.index }}. {{ finding }}</div>
+    {% endfor %}
+
+    <h2>Genre Insights</h2>
+    <table>
+        <tr><th>Genre</th><th>Count</th><th>%</th><th>Avg Rating</th><th>Median Rating</th><th>Avg Price</th><th>Median Price</th><th>Avg Reviews</th></tr>
+        {% for genre in ['Fiction', 'Non Fiction'] %}
+        {% if genre in insights.genre_insights %}
+        <tr>
+            <td>{{ genre }}</td>
+            <td>{{ insights.genre_insights[genre].count | default(0) }}</td>
+            <td>{{ insights.genre_insights[genre].percentage | default(0) }}%</td>
+            <td>{{ insights.genre_insights[genre].avg_rating | default(0) }}</td>
+            <td>{{ insights.genre_insights[genre].median_rating | default(0) }}</td>
+            <td>${{ insights.genre_insights[genre].avg_price | default(0) }}</td>
+            <td>${{ insights.genre_insights[genre].median_price | default(0) }}</td>
+            <td>{{ insights.genre_insights[genre].avg_reviews | default(0) }}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+    <h2>Top Authors</h2>
+    <h3>Top 10 by Book Count</h3>
+    <table>
+        <tr><th>Rank</th><th>Author</th><th>Books</th><th>Avg Rating</th></tr>
+        {% for author in insights.author_insights.top_by_count[:10] %}
+        <tr><td>{{ loop.index }}</td><td>{{ author.author }}</td><td>{{ author.book_count }}</td><td>{{ author.avg_rating }}</td></tr>
+        {% endfor %}
+    </table>
+
+    <h3>Top 10 by Average Rating (min 2 books)</h3>
+    <table>
+        <tr><th>Rank</th><th>Author</th><th>Books</th><th>Avg Rating</th></tr>
+        {% for author in insights.author_insights.top_by_rating[:10] %}
+        <tr><td>{{ loop.index }}</td><td>{{ author.author }}</td><td>{{ author.book_count }}</td><td>{{ author.avg_rating }}</td></tr>
+        {% endfor %}
+    </table>
+
+    <h2>Correlation Insights</h2>
+    <table>
+        <tr><th>Variable Pair</th><th>Correlation</th><th>P-Value</th><th>Significant</th></tr>
+        {% for corr in insights.correlation_insights.overall.top_correlations[:5] %}
+        <tr>
+            <td>{{ corr.variable }} vs Rating</td>
+            <td>{{ corr.correlation }}</td>
+            <td>{{ corr.p_value }}</td>
+            <td>{{ 'Yes' if corr.significant else 'No' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Trend Insights</h2>
+    {% if insights.trend_insights.yearly_trends.year_over_year_changes %}
+    <table>
+        <tr><th>Period</th><th>Books % Change</th><th>Rating Change</th><th>Price Change</th><th>Reviews Change</th></tr>
+        {% for period, change in insights.trend_insights.yearly_trends.year_over_year_changes.items() %}
+        <tr>
+            <td>{{ period }}</td>
+            <td>{{ change.count_pct_change }}%</td>
+            <td>{{ change.rating_change }}</td>
+            <td>${{ change.price_change }}</td>
+            <td>{{ change.reviews_change }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <h2>Outlier Analysis</h2>
+    <table>
+        <tr><th>Variable</th><th>IQR Outliers</th><th>IQR %</th><th>Z-Score Outliers</th><th>Z-Score %</th></tr>
+        {% for col in ['price', 'user_rating', 'reviews'] %}
+        <tr>
+            <td>{{ col.capitalize() }}</td>
+            <td>{{ insights.outlier_insights[col].iqr_outliers.count }}</td>
+            <td>{{ insights.outlier_insights[col].iqr_outliers.percentage }}%</td>
+            <td>{{ insights.outlier_insights[col].zscore_outliers.count }}</td>
+            <td>{{ insights.outlier_insights[col].zscore_outliers.percentage }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <hr>
+    <p><em>End of Report</em></p>
+</body>
+</html>
