@@ -1,0 +1,989 @@
+{
+  "generated_at": "2026-09-18T09:39:19.095267",
+  "data_summary": {
+    "total_books": 4,
+    "year_range": [
+      2019,
+      2021
+    ],
+    "genres": [
+      "Fiction",
+      "Non Fiction"
+    ],
+    "unique_authors": 3,
+    "price_range": [
+      14.99,
+      29.99
+    ],
+    "rating_range": [
+      3.9,
+      4.8
+    ],
+    "reviews_range": [
+      500,
+      3000
+    ]
+  },
+  "descriptive_statistics": {
+    "price": {
+      "mean": 22.49,
+      "median": 22.49,
+      "std": 6.454972243679028,
+      "min": 14.99,
+      "max": 29.99,
+      "q25": 18.74,
+      "q75": 26.24,
+      "skewness": 8.453898800233039e-16,
+      "kurtosis": -1.200000000000001
+    },
+    "user_rating": {
+      "mean": 4.35,
+      "median": 4.35,
+      "std": 0.3872983346207416,
+      "min": 3.9,
+      "max": 4.8,
+      "q25": 4.125,
+      "q75": 4.575,
+      "skewness": 0.0,
+      "kurtosis": -1.1999999999999957
+    },
+    "reviews": {
+      "mean": 1625.0,
+      "median": 1500.0,
+      "std": 1108.6778913041726,
+      "min": 500.0,
+      "max": 3000.0,
+      "q25": 875.0,
+      "q75": 2250.0,
+      "skewness": 0.48156304844927,
+      "kurtosis": -1.699511634587763
+    }
+  },
+  "genre_insights": {
+    "Fiction": {
+      "count": 2,
+      "percentage": 50.0,
+      "avg_rating": 4.65,
+      "median_rating": 4.65,
+      "avg_price": 17.49,
+      "median_price": 17.49,
+      "avg_reviews": 750.0,
+      "median_reviews": 750.0,
+      "top_authors": {
+        "Author A": 2
+      },
+      "price_range": [
+        14.99,
+        19.99
+      ],
+      "rating_range": [
+        4.5,
+        4.8
+      ]
+    },
+    "Non Fiction": {
+      "count": 2,
+      "percentage": 50.0,
+      "avg_rating": 4.05,
+      "median_rating": 4.05,
+      "avg_price": 27.49,
+      "median_price": 27.49,
+      "avg_reviews": 2500.0,
+      "median_reviews": 2500.0,
+      "top_authors": {
+        "Author B": 1,
+        "Author C": 1
+      },
+      "price_range": [
+        24.99,
+        29.99
+      ],
+      "rating_range": [
+        3.9,
+        4.2
+      ]
+    },
+    "comparison": {
+      "genres_compared": [
+        "Fiction",
+        "Non Fiction"
+      ],
+      "rating_diff": 0.6000000000000005,
+      "price_diff": -10.0,
+      "reviews_diff": -1750.0,
+      "count_diff": 0
+    }
+  },
+  "author_insights": {
+    "total_unique_authors": 3,
+    "top_by_count": [
+      {
+        "author": "Author A",
+        "book_count": 2,
+        "avg_rating": 4.65
+      },
+      {
+        "author": "Author B",
+        "book_count": 1,
+        "avg_rating": 4.2
+      },
+      {
+        "author": "Author C",
+        "book_count": 1,
+        "avg_rating": 3.9
+      }
+    ],
+    "top_by_rating": [
+      {
+        "author": "Author A",
+        "book_count": 2,
+        "avg_rating": 4.65
+      }
+    ],
+    "top_by_reviews": [
+      {
+        "author": "Author C",
+        "total_reviews": 3000,
+        "avg_rating": 3.9
+      },
+      {
+        "author": "Author B",
+        "total_reviews": 2000,
+        "avg_rating": 4.2
+      },
+      {
+        "author": "Author A",
+        "total_reviews": 1500,
+        "avg_rating": 4.65
+      }
+    ],
+    "multi_year_authors": [],
+    "avg_books_per_author": 1.3333333333333333,
+    "max_books_by_author": 2
+  },
+  "correlation_insights": {
+    "overall": {
+      "target": "user_rating",
+      "top_correlations": [
+        {
+          "variable": "price",
+          "correlation": -1.0,
+          "p_value": 0.0,
+          "significant": "True"
+        },
+        {
+          "variable": "reviews",
+          "correlation": -0.9897782665572892,
+          "p_value": 0.010221733442710823,
+          "significant": "True"
+        },
+        {
+          "variable": "year",
+          "correlation": -0.943879807448539,
+          "p_value": 0.056120192551460946,
+          "significant": "False"
+        }
+      ],
+      "all_correlations": [
+        {
+          "variable": "price",
+          "correlation": -1.0,
+          "p_value": 0.0,
+          "significant": "True"
+        },
+        {
+          "variable": "reviews",
+          "correlation": -0.9897782665572892,
+          "p_value": 0.010221733442710823,
+          "significant": "True"
+        },
+        {
+          "variable": "year",
+          "correlation": -0.943879807448539,
+          "p_value": 0.056120192551460946,
+          "significant": "False"
+        }
+      ]
+    },
+    "reviews_vs_rating": {
+      "method": "pearson",
+      "variable_x": "reviews",
+      "variable_y": "user_rating",
+      "correlation": -0.9897782665572892,
+      "p_value": 0.010221733442710823,
+      "significant": "True",
+      "significance_level": 0.05,
+      "sample_size": 4,
+      "confidence_interval_95": [
+        -0.9997961685324159,
+        -0.5886718458273388
+      ],
+      "interpretation": "The correlation is significant (p=0.010222). It is a very strong negative correlation (r=-0.990).",
+      "analysis_type": "reviews_vs_rating",
+      "by_genre": {
+        "Fiction": {
+          "method": "pearson",
+          "variable_x": "reviews",
+          "variable_y": "user_rating",
+          "correlation": -1.0,
+          "p_value": 1.0,
+          "significant": "False",
+          "significance_level": 0.05,
+          "sample_size": 2,
+          "confidence_interval_95": null,
+          "interpretation": "The correlation is not significant (p=1.000000). It is a very strong negative correlation (r=-1.000)."
+        },
+        "Non Fiction": {
+          "method": "pearson",
+          "variable_x": "reviews",
+          "variable_y": "user_rating",
+          "correlation": -1.0,
+          "p_value": 1.0,
+          "significant": "False",
+          "significance_level": 0.05,
+          "sample_size": 2,
+          "confidence_interval_95": null,
+          "interpretation": "The correlation is not significant (p=1.000000). It is a very strong negative correlation (r=-1.000)."
+        }
+      }
+    },
+    "price_vs_rating": {
+      "method": "pearson",
+      "variable_x": "price",
+      "variable_y": "user_rating",
+      "correlation": -1.0,
+      "p_value": 0.0,
+      "significant": "True",
+      "significance_level": 0.05,
+      "sample_size": 4,
+      "confidence_interval_95": null,
+      "interpretation": "The correlation is significant (p=0.000000). It is a very strong negative correlation (r=-1.000).",
+      "analysis_type": "price_vs_rating",
+      "by_genre": {
+        "Fiction": {
+          "method": "pearson",
+          "variable_x": "price",
+          "variable_y": "user_rating",
+          "correlation": -1.0,
+          "p_value": 1.0,
+          "significant": "False",
+          "significance_level": 0.05,
+          "sample_size": 2,
+          "confidence_interval_95": null,
+          "interpretation": "The correlation is not significant (p=1.000000). It is a very strong negative correlation (r=-1.000)."
+        },
+        "Non Fiction": {
+          "method": "pearson",
+          "variable_x": "price",
+          "variable_y": "user_rating",
+          "correlation": -1.0,
+          "p_value": 1.0,
+          "significant": "False",
+          "significance_level": 0.05,
+          "sample_size": 2,
+          "confidence_interval_95": null,
+          "interpretation": "The correlation is not significant (p=1.000000). It is a very strong negative correlation (r=-1.000)."
+        }
+      }
+    },
+    "price_vs_reviews": {
+      "method": "pearson",
+      "variable_x": "price",
+      "variable_y": "reviews",
+      "correlation": 0.9897782665572894,
+      "p_value": 0.010221733442710601,
+      "significant": "True",
+      "significance_level": 0.05,
+      "sample_size": 4,
+      "confidence_interval_95": [
+        0.588671845827346,
+        0.9997961685324159
+      ],
+      "interpretation": "The correlation is significant (p=0.010222). It is a very strong positive correlation (r=0.990).",
+      "analysis_type": "price_vs_reviews",
+      "by_genre": {
+        "Fiction": {
+          "method": "pearson",
+          "variable_x": "price",
+          "variable_y": "reviews",
+          "correlation": 1.0,
+          "p_value": 1.0,
+          "significant": "False",
+          "significance_level": 0.05,
+          "sample_size": 2,
+          "confidence_interval_95": null,
+          "interpretation": "The correlation is not significant (p=1.000000). It is a very strong positive correlation (r=1.000)."
+        },
+        "Non Fiction": {
+          "method": "pearson",
+          "variable_x": "price",
+          "variable_y": "reviews",
+          "correlation": 1.0,
+          "p_value": 1.0,
+          "significant": "False",
+          "significance_level": 0.05,
+          "sample_size": 2,
+          "confidence_interval_95": null,
+          "interpretation": "The correlation is not significant (p=1.000000). It is a very strong positive correlation (r=1.000)."
+        }
+      }
+    },
+    "yearly_correlations": {
+      "analysis_type": "yearly_correlations",
+      "yearly_results": {}
+    }
+  },
+  "trend_insights": {
+    "yearly_trends": {
+      "yearly_metrics": {
+        "2019": {
+          "count": 2,
+          "avg_rating": 4.65,
+          "median_rating": 4.65,
+          "avg_price": 17.49,
+          "median_price": 17.49,
+          "avg_reviews": 750.0,
+          "median_reviews": 750.0,
+          "fiction_count": 2,
+          "nonfiction_count": 0,
+          "fiction_pct": 100.0,
+          "nonfiction_pct": 0.0
+        },
+        "2020": {
+          "count": 1,
+          "avg_rating": 4.2,
+          "median_rating": 4.2,
+          "avg_price": 24.99,
+          "median_price": 24.99,
+          "avg_reviews": 2000.0,
+          "median_reviews": 2000.0,
+          "fiction_count": 0,
+          "nonfiction_count": 1,
+          "fiction_pct": 0.0,
+          "nonfiction_pct": 100.0
+        },
+        "2021": {
+          "count": 1,
+          "avg_rating": 3.9,
+          "median_rating": 3.9,
+          "avg_price": 29.99,
+          "median_price": 29.99,
+          "avg_reviews": 3000.0,
+          "median_reviews": 3000.0,
+          "fiction_count": 0,
+          "nonfiction_count": 1,
+          "fiction_pct": 0.0,
+          "nonfiction_pct": 100.0
+        }
+      },
+      "year_over_year_changes": {
+        "2019_to_2020": {
+          "count_change": -1,
+          "count_pct_change": -50.0,
+          "rating_change": -0.4500000000000002,
+          "price_change": 7.5,
+          "reviews_change": 1250.0,
+          "fiction_pct_change": -100.0
+        },
+        "2020_to_2021": {
+          "count_change": 0,
+          "count_pct_change": 0.0,
+          "rating_change": -0.30000000000000027,
+          "price_change": 5.0,
+          "reviews_change": 1000.0,
+          "fiction_pct_change": 0.0
+        }
+      },
+      "year_range": [
+        2019,
+        2021
+      ],
+      "total_years": 3
+    },
+    "genre_trends": {
+      "genre_trends": {
+        "Fiction": {
+          "2019": {
+            "count": 2,
+            "avg_rating": 4.65,
+            "avg_price": 17.49,
+            "avg_reviews": 750.0,
+            "pct_of_year": 100.0
+          }
+        },
+        "Non Fiction": {
+          "2020": {
+            "count": 1,
+            "avg_rating": 4.2,
+            "avg_price": 24.99,
+            "avg_reviews": 2000.0,
+            "pct_of_year": 100.0
+          },
+          "2021": {
+            "count": 1,
+            "avg_rating": 3.9,
+            "avg_price": 29.99,
+            "avg_reviews": 3000.0,
+            "pct_of_year": 100.0
+          }
+        }
+      },
+      "years": [
+        2019,
+        2020,
+        2021
+      ],
+      "genres": [
+        "Fiction",
+        "Non Fiction"
+      ]
+    },
+    "top_authors_trends": {
+      "top_authors": [
+        "Author A",
+        "Author B",
+        "Author C"
+      ],
+      "author_trends": {
+        "Author A": {
+          "2019": {
+            "count": 2,
+            "avg_rating": 4.65,
+            "avg_price": 17.49,
+            "books": [
+              "Book 1",
+              "Book 3"
+            ]
+          }
+        },
+        "Author B": {
+          "2020": {
+            "count": 1,
+            "avg_rating": 4.2,
+            "avg_price": 24.99,
+            "books": [
+              "Book 2"
+            ]
+          }
+        },
+        "Author C": {
+          "2021": {
+            "count": 1,
+            "avg_rating": 3.9,
+            "avg_price": 29.99,
+            "books": [
+              "Book 4"
+            ]
+          }
+        }
+      },
+      "years": [
+        2019,
+        2020,
+        2021
+      ]
+    },
+    "rating_distribution_trends": {
+      "yearly_distributions": {
+        "2019": {
+          "histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bin_edges": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0
+          ],
+          "mean": 4.65,
+          "std": 0.21213203435596412,
+          "skewness": null,
+          "kurtosis": null
+        },
+        "2020": {
+          "histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "bin_edges": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0
+          ],
+          "mean": 4.2,
+          "std": null,
+          "skewness": null,
+          "kurtosis": null
+        },
+        "2021": {
+          "histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "bin_edges": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0
+          ],
+          "mean": 3.9,
+          "std": null,
+          "skewness": null,
+          "kurtosis": null
+        }
+      },
+      "bins": 10,
+      "range": [
+        0,
+        5
+      ]
+    },
+    "price_distribution_trends": {
+      "yearly_distributions": {
+        "2019": {
+          "histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bin_edges": [
+            0.0,
+            1.4994999999999998,
+            2.9989999999999997,
+            4.4985,
+            5.997999999999999,
+            7.497499999999999,
+            8.997,
+            10.4965,
+            11.995999999999999,
+            13.495499999999998,
+            14.994999999999997,
+            16.4945,
+            17.994,
+            19.493499999999997,
+            20.993,
+            22.492499999999996,
+            23.991999999999997,
+            25.4915,
+            26.990999999999996,
+            28.490499999999997,
+            29.99
+          ],
+          "mean": 17.49,
+          "median": 17.49,
+          "std": 3.5355339059327364,
+          "skewness": null,
+          "kurtosis": null
+        },
+        "2020": {
+          "histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "bin_edges": [
+            0.0,
+            1.4994999999999998,
+            2.9989999999999997,
+            4.4985,
+            5.997999999999999,
+            7.497499999999999,
+            8.997,
+            10.4965,
+            11.995999999999999,
+            13.495499999999998,
+            14.994999999999997,
+            16.4945,
+            17.994,
+            19.493499999999997,
+            20.993,
+            22.492499999999996,
+            23.991999999999997,
+            25.4915,
+            26.990999999999996,
+            28.490499999999997,
+            29.99
+          ],
+          "mean": 24.99,
+          "median": 24.99,
+          "std": null,
+          "skewness": null,
+          "kurtosis": null
+        },
+        "2021": {
+          "histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "bin_edges": [
+            0.0,
+            1.4994999999999998,
+            2.9989999999999997,
+            4.4985,
+            5.997999999999999,
+            7.497499999999999,
+            8.997,
+            10.4965,
+            11.995999999999999,
+            13.495499999999998,
+            14.994999999999997,
+            16.4945,
+            17.994,
+            19.493499999999997,
+            20.993,
+            22.492499999999996,
+            23.991999999999997,
+            25.4915,
+            26.990999999999996,
+            28.490499999999997,
+            29.99
+          ],
+          "mean": 29.99,
+          "median": 29.99,
+          "std": null,
+          "skewness": null,
+          "kurtosis": null
+        }
+      },
+      "bins": 20,
+      "range": [
+        0,
+        29.99
+      ]
+    },
+    "user_rating_trend_changes": {
+      "metric": "user_rating",
+      "yearly_data": [
+        {
+          "year": 2019,
+          "user_rating": 4.65,
+          "rolling_mean": null,
+          "rolling_std": null,
+          "pct_change": null,
+          "anomaly": false
+        },
+        {
+          "year": 2020,
+          "user_rating": 4.2,
+          "rolling_mean": 4.25,
+          "rolling_std": 0.37749172176353785,
+          "pct_change": -9.677419354838712,
+          "anomaly": false
+        },
+        {
+          "year": 2021,
+          "user_rating": 3.9,
+          "rolling_mean": null,
+          "rolling_std": null,
+          "pct_change": -7.142857142857151,
+          "anomaly": false
+        }
+      ],
+      "anomalies": [],
+      "window": 3
+    },
+    "price_trend_changes": {
+      "metric": "price",
+      "yearly_data": [
+        {
+          "year": 2019,
+          "price": 17.49,
+          "rolling_mean": null,
+          "rolling_std": null,
+          "pct_change": null,
+          "anomaly": false
+        },
+        {
+          "year": 2020,
+          "price": 24.99,
+          "rolling_mean": 24.156666666666666,
+          "rolling_std": 6.291528696058958,
+          "pct_change": 42.88164665523158,
+          "anomaly": false
+        },
+        {
+          "year": 2021,
+          "price": 29.99,
+          "rolling_mean": null,
+          "rolling_std": null,
+          "pct_change": 20.00800320128051,
+          "anomaly": false
+        }
+      ],
+      "anomalies": [],
+      "window": 3
+    },
+    "reviews_trend_changes": {
+      "metric": "reviews",
+      "yearly_data": [
+        {
+          "year": 2019,
+          "reviews": 750.0,
+          "rolling_mean": null,
+          "rolling_std": null,
+          "pct_change": null,
+          "anomaly": false
+        },
+        {
+          "year": 2020,
+          "reviews": 2000.0,
+          "rolling_mean": 1916.6666666666667,
+          "rolling_std": 1127.3124382057235,
+          "pct_change": 166.66666666666666,
+          "anomaly": false
+        },
+        {
+          "year": 2021,
+          "reviews": 3000.0,
+          "rolling_mean": null,
+          "rolling_std": null,
+          "pct_change": 50.0,
+          "anomaly": false
+        }
+      ],
+      "anomalies": [],
+      "window": 3
+    }
+  },
+  "outlier_insights": {
+    "price": {
+      "iqr_outliers": {
+        "count": 0,
+        "percentage": 0.0,
+        "min": null,
+        "max": null,
+        "examples": []
+      },
+      "zscore_outliers": {
+        "count": 0,
+        "percentage": 0.0,
+        "examples": []
+      }
+    },
+    "user_rating": {
+      "iqr_outliers": {
+        "count": 0,
+        "percentage": 0.0,
+        "min": null,
+        "max": null,
+        "examples": []
+      },
+      "zscore_outliers": {
+        "count": 0,
+        "percentage": 0.0,
+        "examples": []
+      }
+    },
+    "reviews": {
+      "iqr_outliers": {
+        "count": 0,
+        "percentage": 0.0,
+        "min": null,
+        "max": null,
+        "examples": []
+      },
+      "zscore_outliers": {
+        "count": 0,
+        "percentage": 0.0,
+        "examples": []
+      }
+    }
+  },
+  "statistical_test_insights": {
+    "genre_comparison": {
+      "user_rating": {
+        "test": "Mann-Whitney U test",
+        "Fiction_median": 4.65,
+        "Non Fiction_median": 4.05,
+        "Fiction_n": 2,
+        "Non Fiction_n": 2,
+        "u_statistic": 4.0,
+        "p_value": 0.3333333333333333,
+        "significant": false,
+        "significance_level": 0.05,
+        "effect_size_rank_biserial": -1.0,
+        "interpretation": "The difference between Fiction and Non Fiction is not significant (U=4.00, p=0.333333)."
+      },
+      "price": {
+        "test": "Mann-Whitney U test",
+        "Fiction_median": 17.49,
+        "Non Fiction_median": 27.49,
+        "Fiction_n": 2,
+        "Non Fiction_n": 2,
+        "u_statistic": 0.0,
+        "p_value": 0.3333333333333333,
+        "significant": false,
+        "significance_level": 0.05,
+        "effect_size_rank_biserial": 1.0,
+        "interpretation": "The difference between Fiction and Non Fiction is not significant (U=0.00, p=0.333333)."
+      },
+      "reviews": {
+        "test": "Mann-Whitney U test",
+        "Fiction_median": 750.0,
+        "Non Fiction_median": 2500.0,
+        "Fiction_n": 2,
+        "Non Fiction_n": 2,
+        "u_statistic": 0.0,
+        "p_value": 0.3333333333333333,
+        "significant": false,
+        "significance_level": 0.05,
+        "effect_size_rank_biserial": 1.0,
+        "interpretation": "The difference between Fiction and Non Fiction is not significant (U=0.00, p=0.333333)."
+      }
+    },
+    "yearly_trend": {
+      "user_rating": {
+        "test": "Linear regression trend test",
+        "x": "year",
+        "y": "user_rating",
+        "slope": -0.3818181818181818,
+        "intercept": 775.5272727272727,
+        "r_value": -0.9438798074485388,
+        "r_squared": 0.8909090909090908,
+        "p_value": 0.05612019255146116,
+        "std_err": 0.09447549859466609,
+        "significant": false,
+        "significance_level": 0.05,
+        "interpretation": "The trend in user_rating over year is not significant (p=0.056120), decreasing at a rate of -0.3818 per unit of year."
+      },
+      "price": {
+        "test": "Linear regression trend test",
+        "x": "year",
+        "y": "price",
+        "slope": 6.363636363636363,
+        "intercept": -12830.464545454544,
+        "r_value": 0.9438798074485389,
+        "r_squared": 0.890909090909091,
+        "p_value": 0.05612019255146104,
+        "std_err": 1.5745916432444333,
+        "significant": false,
+        "significance_level": 0.05,
+        "interpretation": "The trend in price over year is not significant (p=0.056120), increasing at a rate of 6.3636 per unit of year."
+      },
+      "reviews": {
+        "test": "Linear regression trend test",
+        "x": "year",
+        "y": "reviews",
+        "slope": 1136.3636363636363,
+        "intercept": -2293545.454545454,
+        "r_value": 0.9813358399735744,
+        "r_squared": 0.9630200308166409,
+        "p_value": 0.01866416002642557,
+        "std_err": 157.45916432444358,
+        "significant": true,
+        "significance_level": 0.05,
+        "interpretation": "The trend in reviews over year is significant (p=0.018664), increasing at a rate of 1136.3636 per unit of year."
+      }
+    }
+  },
+  "key_findings": [
+    "Dataset contains 4 books from 2019 to 2021",
+    "Genres: Fiction, Non Fiction (3 unique authors)",
+    "Fiction books have higher average ratings (0.60 points higher)",
+    "Non-Fiction books are more expensive on average ($10.00 more)",
+    "Strongest correlation with rating: price (r=-1.000, p=0.0000)",
+    "Reviews vs Rating correlation: -0.990 (p=0.0102) - negative relationship",
+    "Price vs Rating correlation: -1.000 (p=0.0000) - negative relationship",
+    "Year-over-year change (2020_to_2021): Books: +0.0%, Rating: -0.300, Price: $+5.00",
+    "Most prolific author: Author A with 2 books (avg rating: 4.65)"
+  ]
+}
