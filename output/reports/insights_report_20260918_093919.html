@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Books Analysis Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; border-bottom: 1px solid #bdc3c7; padding-bottom: 5px; }
+        h3 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .key-finding { background-color: #e8f6f3; padding: 10px; margin: 10px 0; border-left: 4px solid #1abc9c; }
+        .summary-box { background-color: #ebf5fb; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .metric { display: inline-block; margin: 10px 20px 10px 0; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #2c3e50; }
+        .metric-label { font-size: 14px; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <h1>Amazon Books Analysis Report</h1>
+    <p><em>Generated: 2026-09-18 09:39:19</em></p>
+
+    <div class="summary-box">
+        <h2>Data Summary</h2>
+        <div class="metric">
+            <div class="metric-value">4</div>
+            <div class="metric-label">Total Books</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">2019 - 2021</div>
+            <div class="metric-label">Year Range</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Unique Authors</div>
+        </div>
+    </div>
+
+    <h2>Key Findings</h2>
+    
+    <div class="key-finding">1. Dataset contains 4 books from 2019 to 2021</div>
+    
+    <div class="key-finding">2. Genres: Fiction, Non Fiction (3 unique authors)</div>
+    
+    <div class="key-finding">3. Fiction books have higher average ratings (0.60 points higher)</div>
+    
+    <div class="key-finding">4. Non-Fiction books are more expensive on average ($10.00 more)</div>
+    
+    <div class="key-finding">5. Strongest correlation with rating: price (r=-1.000, p=0.0000)</div>
+    
+    <div class="key-finding">6. Reviews vs Rating correlation: -0.990 (p=0.0102) - negative relationship</div>
+    
+    <div class="key-finding">7. Price vs Rating correlation: -1.000 (p=0.0000) - negative relationship</div>
+    
+    <div class="key-finding">8. Year-over-year change (2020_to_2021): Books: +0.0%, Rating: -0.300, Price: $+5.00</div>
+    
+    <div class="key-finding">9. Most prolific author: Author A with 2 books (avg rating: 4.65)</div>
+    
+
+    <h2>Genre Insights</h2>
+    <table>
+        <tr><th>Genre</th><th>Count</th><th>%</th><th>Avg Rating</th><th>Median Rating</th><th>Avg Price</th><th>Median Price</th><th>Avg Reviews</th></tr>
+        
+        
+        <tr>
+            <td>Fiction</td>
+            <td>2</td>
+            <td>50.0%</td>
+            <td>4.65</td>
+            <td>4.65</td>
+            <td>$17.49</td>
+            <td>$17.49</td>
+            <td>750.0</td>
+        </tr>
+        
+        
+        
+        <tr>
+            <td>Non Fiction</td>
+            <td>2</td>
+            <td>50.0%</td>
+            <td>4.05</td>
+            <td>4.05</td>
+            <td>$27.49</td>
+            <td>$27.49</td>
+            <td>2500.0</td>
+        </tr>
+        
+        
+    </table>
+
+    <h2>Top Authors</h2>
+    <h3>Top 10 by Book Count</h3>
+    <table>
+        <tr><th>Rank</th><th>Author</th><th>Books</th><th>Avg Rating</th></tr>
+        
+        <tr><td>1</td><td>Author A</td><td>2</td><td>4.65</td></tr>
+        
+        <tr><td>2</td><td>Author B</td><td>1</td><td>4.2</td></tr>
+        
+        <tr><td>3</td><td>Author C</td><td>1</td><td>3.9</td></tr>
+        
+    </table>
+
+    <h3>Top 10 by Average Rating (min 2 books)</h3>
+    <table>
+        <tr><th>Rank</th><th>Author</th><th>Books</th><th>Avg Rating</th></tr>
+        
+        <tr><td>1</td><td>Author A</td><td>2</td><td>4.65</td></tr>
+        
+    </table>
+
+    <h2>Correlation Insights</h2>
+    <table>
+        <tr><th>Variable Pair</th><th>Correlation</th><th>P-Value</th><th>Significant</th></tr>
+        
+        <tr>
+            <td>price vs Rating</td>
+            <td>-1.0</td>
+            <td>0.0</td>
+            <td>Yes</td>
+        </tr>
+        
+        <tr>
+            <td>reviews vs Rating</td>
+            <td>-0.9897782665572892</td>
+            <td>0.010221733442710823</td>
+            <td>Yes</td>
+        </tr>
+        
+        <tr>
+            <td>year vs Rating</td>
+            <td>-0.943879807448539</td>
+            <td>0.056120192551460946</td>
+            <td>No</td>
+        </tr>
+        
+    </table>
+
+    <h2>Trend Insights</h2>
+    
+    <table>
+        <tr><th>Period</th><th>Books % Change</th><th>Rating Change</th><th>Price Change</th><th>Reviews Change</th></tr>
+        
+        <tr>
+            <td>2019_to_2020</td>
+            <td>-50.0%</td>
+            <td>-0.4500000000000002</td>
+            <td>$7.5</td>
+            <td>1250.0</td>
+        </tr>
+        
+        <tr>
+            <td>2020_to_2021</td>
+            <td>0.0%</td>
+            <td>-0.30000000000000027</td>
+            <td>$5.0</td>
+            <td>1000.0</td>
+        </tr>
+        
+    </table>
+    
+
+    <h2>Outlier Analysis</h2>
+    <table>
+        <tr><th>Variable</th><th>IQR Outliers</th><th>IQR %</th><th>Z-Score Outliers</th><th>Z-Score %</th></tr>
+        
+        <tr>
+            <td>Price</td>
+            <td>0</td>
+            <td>0.0%</td>
+            <td>0</td>
+            <td>0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>User_rating</td>
+            <td>0</td>
+            <td>0.0%</td>
+            <td>0</td>
+            <td>0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>Reviews</td>
+            <td>0</td>
+            <td>0.0%</td>
+            <td>0</td>
+            <td>0.0%</td>
+        </tr>
+        
+    </table>
+
+    <hr>
+    <p><em>End of Report</em></p>
+</body>
+</html>
