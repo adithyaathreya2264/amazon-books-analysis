@@ -1,0 +1,109 @@
+================================================================================
+AMAZON BOOKS ANALYSIS - INSIGHTS REPORT
+================================================================================
+Generated: 2026-09-18T09:39:19.095267
+
+--------------------------------------------------------------------------------
+DATA SUMMARY
+--------------------------------------------------------------------------------
+Total Books: 4
+Year Range: 2019 - 2021
+Genres: Fiction, Non Fiction
+Unique Authors: 3
+Price Range: $14.99 - $29.99
+Rating Range: 3.90 - 4.80
+Reviews Range: 500 - 3,000
+
+--------------------------------------------------------------------------------
+KEY FINDINGS
+--------------------------------------------------------------------------------
+1. Dataset contains 4 books from 2019 to 2021
+2. Genres: Fiction, Non Fiction (3 unique authors)
+3. Fiction books have higher average ratings (0.60 points higher)
+4. Non-Fiction books are more expensive on average ($10.00 more)
+5. Strongest correlation with rating: price (r=-1.000, p=0.0000)
+6. Reviews vs Rating correlation: -0.990 (p=0.0102) - negative relationship
+7. Price vs Rating correlation: -1.000 (p=0.0000) - negative relationship
+8. Year-over-year change (2020_to_2021): Books: +0.0%, Rating: -0.300, Price: $+5.00
+9. Most prolific author: Author A with 2 books (avg rating: 4.65)
+
+--------------------------------------------------------------------------------
+GENRE INSIGHTS
+--------------------------------------------------------------------------------
+
+Fiction:
+  Count: 2 (50.0%)
+  Avg Rating: 4.65 (Median: 4.65)
+  Avg Price: $17.49 (Median: $17.49)
+  Avg Reviews: 750 (Median: 750)
+
+Non Fiction:
+  Count: 2 (50.0%)
+  Avg Rating: 4.05 (Median: 4.05)
+  Avg Price: $27.49 (Median: $27.49)
+  Avg Reviews: 2500 (Median: 2500)
+
+Comparison (Fiction - Non Fiction):
+  Rating Difference: +0.60
+  Price Difference: $-10.00
+  Reviews Difference: -1750
+  Count Difference: +0
+
+--------------------------------------------------------------------------------
+TOP AUTHORS
+--------------------------------------------------------------------------------
+Total Unique Authors: 3
+Avg Books per Author: 1.3
+Max Books by Author: 2
+
+Top 10 by Book Count:
+  1. Author A: 2 books (avg rating: 4.65)
+  2. Author B: 1 books (avg rating: 4.20)
+  3. Author C: 1 books (avg rating: 3.90)
+
+Top 10 by Average Rating (min 2 books):
+  1. Author A: 4.65 avg rating (2 books)
+
+--------------------------------------------------------------------------------
+CORRELATION INSIGHTS
+--------------------------------------------------------------------------------
+Reviews vs Rating: r=-0.990, p=0.0102 *
+Price vs Rating: r=-1.000, p=0.0000 *
+Price vs Reviews: r=0.990, p=0.0102 *
+
+Top Correlations with Rating:
+  1. price: r=-1.000, p=0.0000 *
+  2. reviews: r=-0.990, p=0.0102 *
+  3. year: r=-0.944, p=0.0561
+
+--------------------------------------------------------------------------------
+TREND INSIGHTS
+--------------------------------------------------------------------------------
+Year-over-Year Changes:
+  2019_to_2020:
+    Books: -50.0%
+    Rating: -0.450
+    Price: $+7.50
+    Reviews: +1250
+  2020_to_2021:
+    Books: +0.0%
+    Rating: -0.300
+    Price: $+5.00
+    Reviews: +1000
+
+--------------------------------------------------------------------------------
+OUTLIER ANALYSIS
+--------------------------------------------------------------------------------
+Price:
+  IQR Outliers: 0 (0.0%)
+  Z-Score Outliers: 0 (0.0%)
+User_rating:
+  IQR Outliers: 0 (0.0%)
+  Z-Score Outliers: 0 (0.0%)
+Reviews:
+  IQR Outliers: 0 (0.0%)
+  Z-Score Outliers: 0 (0.0%)
+
+================================================================================
+END OF REPORT
+================================================================================
